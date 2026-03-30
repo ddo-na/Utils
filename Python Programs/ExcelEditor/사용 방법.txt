@@ -1,0 +1,100 @@
+jsonEditor.exe 사용 가이드
+
+[기본 구조]
+jsonEditor.exe <command> [options]
+
+※ command는 반드시 입력해야 한다.
+
+────────────────
+[1. 기본 조회]
+────────────────
+
+1. 사용 가능한 포맷 확인
+   jsonEditor.exe list
+
+────────────────
+[2. 스킬 데이터 조회 / 수정]
+────────────────
+
+2. 스킬 목록 조회 (SkillId 리스트)
+   jsonEditor.exe skills-list <xlsx파일경로>
+
+예시:
+jsonEditor.exe skills-list data.xlsx
+
+3. 특정 스킬 조회 (yaml 형태)
+   jsonEditor.exe skills-get <xlsx파일경로> <SkillId>
+
+예시:
+jsonEditor.exe skills-get data.xlsx SKILL_FIREBALL
+
+4. 특정 스킬 수정 (yaml 편집)
+   jsonEditor.exe skills-edit <xlsx파일경로> <SkillId>
+
+설명:
+
+* 임시 yaml 파일이 열림
+* 수정 후 저장하면 xlsx에 반영됨
+
+────────────────
+[3. 엑셀 파일 생성 / 변환]
+────────────────
+
+5. 엑셀 템플릿 생성
+   jsonEditor.exe new-xlsx <출력파일경로>
+
+예시:
+jsonEditor.exe new-xlsx template.xlsx
+
+6. JSON → XLSX 변환
+   jsonEditor.exe decode-xlsx <입력json> <출력xlsx>
+
+예시:
+jsonEditor.exe decode-xlsx data.json data.xlsx
+
+7. XLSX → JSON 변환
+   jsonEditor.exe encode-xlsx <입력xlsx> <출력json>
+
+예시:
+jsonEditor.exe encode-xlsx data.xlsx data.json
+
+────────────────
+[4. JSON 직접 편집]
+────────────────
+
+8. JSON → 편집 → JSON
+   jsonEditor.exe edit <json파일경로>
+
+설명:
+
+* 사람이 읽기 쉬운 형태로 변환
+* 수정 후 다시 JSON으로 저장됨
+
+────────────────
+[주의사항]
+────────────────
+
+* command 없이 실행하면 오류 발생
+* 파일 경로에 공백이 있을 경우 따옴표 사용
+
+예시:
+jsonEditor.exe encode-xlsx "my data.xlsx" result.json
+
+────────────────
+[빠른 시작 추천 흐름]
+────────────────
+
+1. 템플릿 생성
+   jsonEditor.exe new-xlsx data.xlsx
+
+2. 데이터 작성 (엑셀)
+
+3. JSON 변환
+   jsonEditor.exe encode-xlsx data.xlsx data.json
+
+────────────────
+[문제 발생 시]
+────────────────
+
+도움말 확인:
+jsonEditor.exe -h
