@@ -1,0 +1,7 @@
+{
+  "base_min_damage": 1.0,
+  "formula": "max(base_min_damage, atk - defense)",
+  "crit_rate": 0.05,
+  "crit_mult": 1.5,
+  "hit_variance": 0.0
+}

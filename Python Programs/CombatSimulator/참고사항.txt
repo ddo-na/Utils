@@ -1,0 +1,19 @@
+전투 시뮬레이터 참고사항
+
+== 전투 동작 ==============================================
+포션 자동 사용 기준 : 체력 60% 미만
+
+== 참고 변수 ==============================================
+property number typeMatchFactor = 1.3
+property number strongFactor = 0.70
+property number weakFactor = 1.33
+
+== 데이터 ==============================================
+AttackId
+- single : 단일
+- aoe_attacker : 범위
+
+BrainId
+- basic_chase : 돌격
+- kite : 거리 유지 (최대 거리까지 도망)
+- kite_smart : 거리 유지 (공격 가능 시, 반드시 공격)
